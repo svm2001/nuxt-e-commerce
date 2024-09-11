@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import {useCartStore} from "~/store/cart";
 import type {Product} from "~/components/products/List_types";
+import {formatNumber} from "~/utils/formatNumber";
 const cartStore = useCartStore();
 
 </script>
@@ -34,7 +35,7 @@ const cartStore = useCartStore();
         <h3 class="text-2xl font-bold text-slate-800 mb-5">For payment: {{ formatNumber(cartStore.totalPrice) }} $</h3>
         <Sheet>
             <SheetTrigger as-child>
-                <Button class="w-full text-xl p-0 !min-h-14 !text-teal-300 flex items-center gap-2 mt-auto">Next <Icon name="grommet-icons:link-next" class="w-4 h-4"></Icon></Button>
+                <Button class="w-full text-xl p-0 !min-h-14 !text-[#00dc82] flex items-center gap-2 mt-auto">Next <Icon name="grommet-icons:link-next" class="w-4 h-4"></Icon></Button>
             </SheetTrigger>
             <SheetContent :class="{ 'translate-x-full pointer-events-none': cartStore.formSending }">
                 <SheetHeader>

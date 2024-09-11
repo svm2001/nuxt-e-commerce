@@ -12,13 +12,17 @@ export const useCategoryStore = defineStore('categories', () => {
     const error = ref<string | null>(null)
     const loading = ref<boolean>(false)
 
+    const itemsPerPage = ref<number>(8)
+    const page = ref<number>(1)
+    const itemsLength = ref<number>(0)
+    const totalPages = ref<number>(itemsLength.value / itemsPerPage.value)
+
     const fetchCategories = async () => {
         try {
             const response = await fetch(`${url}${urlCategories}`)
             const data = await response.json();
             if(Array.isArray(data)) {
                 categories.value = data
-                console.log(categories.value)
             } else {
                 throw new Error('Failed to fetch categories')
             }
@@ -30,12 +34,27 @@ export const useCategoryStore = defineStore('categories', () => {
     const fetchProductsByCategory = async (id: number) => {
         error.value = null
         try {
-            const response = await fetch(`https://api.escuelajs.co/api/v1/categories/${id}/products`)
-            // const response = await fetch(`${url}${categories}${id}/products?limit=0&offset=100`)
+            const response = await fetch(`https://api.escuelajs.co/api/v1/categories/${id}/products?limit=0&offset=0`)
             const data = await response.json()
             if (Array.isArray(data)) {
                 products.value = data;
-                console.log(products.value)
+                itemsLength.value = products.value.length
+            } else {
+                throw new Error('Failed to fetch products by category');
+            }
+        } catch (err: any) {
+            error.value = err.message
+        }
+    }
+
+    const showMore = async (id: number) => {
+        page.value += 1
+        error.value = null
+        try {
+            const response = await fetch(`https://api.escuelajs.co/api/v1/categories/${id}/products?limit=0&offset=0`)
+            const data = await response.json()
+            if (Array.isArray(data)) {
+                products.value = [...products.value, ...data];
             } else {
                 throw new Error('Failed to fetch products by category');
             }
@@ -72,6 +91,11 @@ export const useCategoryStore = defineStore('categories', () => {
         products,
         loading,
         error,
-        getCategoryById
+        getCategoryById,
+        itemsPerPage,
+        page,
+        itemsLength,
+        totalPages,
+        showMore
     }
 })

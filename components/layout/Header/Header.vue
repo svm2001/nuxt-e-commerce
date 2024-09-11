@@ -19,9 +19,9 @@ const cartStore = useCartStore();
             </NuxtLink>
             <Menu />
             <NuxtLink to="/cart" title="Go to cart" class="flex items-center gap-2 font-bold">
-                <Icon name="cil:cart" class="w-6 h-6" style="color: #81e6d9" />
+                <Icon name="cil:cart" class="w-6 h-6" style="color: #00dc82" />
                 <div class="flex flex-col gap-1.5">
-                    <span class="leading-none text-lg text-teal-300">
+                    <span class="leading-none text-lg text-[#00dc82]">
                         {{formatNumber(cartStore.totalPrice)}} $
                     </span>
                 </div>

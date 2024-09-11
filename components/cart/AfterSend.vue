@@ -13,7 +13,7 @@ const products = cartStore.cartItemsTemp
         <div class="flex flex-col gap-6">
             <div class="p-6 data rounded-md grid grid-cols-2 gap-10 w-[1000px] m-auto shadow-md shadow-teal-500">
                 <div class="flex flex-col gap-6">
-                    <h2 class="text-teal-300 text-3xl font-bold">Your Order:</h2>
+                    <h2 class="text-[#00dc82] text-3xl font-bold">Your Order:</h2>
                     <div class="flex flex-col gap-4">
                         <div
                             v-for="product in products"
@@ -28,7 +28,7 @@ const products = cartStore.cartItemsTemp
                                             {{ product.title }}
                                         </div>
                                         {{ formatNumber(product.price) }}$ x {{ formatNumber(product.quantity) }} =
-                                        {{ formatNumber(product.price) * formatNumber(product.quantity) }}$
+                                        {{ formatNumber(product.price * product.quantity) }}$
                                     </div>
                                 </div>
                             </div>
@@ -36,7 +36,7 @@ const products = cartStore.cartItemsTemp
                     </div>
                 </div>
                 <div class="flex flex-col gap-6">
-                    <h2 class="text-teal-300 text-3xl font-bold">Your Data:</h2>
+                    <h2 class="text-[#00dc82] text-3xl font-bold">Your Data:</h2>
                     <div class="flex flex-col gap-4 text-white">
                         <div class="data-list">
                             <div>

@@ -1,7 +1,7 @@
 <template>
     <div>
         <NuxtLoadingIndicator />
-<!--        <LayoutBg />-->
+        <LayoutBg />
         <LayoutMouseFollower/>
         <div>
             <LayoutHeader />

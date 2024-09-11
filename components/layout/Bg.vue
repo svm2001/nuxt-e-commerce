@@ -2,16 +2,16 @@
 import { onMounted, ref } from 'vue';
 import MouseFollower from "~/components/layout/MouseFollower.vue";
 
-const n_stars = 80;
-const colors = ['#5eead4', '#5eead4'];
-for (let i = 0; i < 98; i++) {
+const n_stars = 250;
+const colors = ['#00dc82', '#5eead4'];
+for (let i = 0; i < 250; i++) {
     colors.push('#5eead4');
 }
 
 const canvas = ref(null);
 const c = ref(null);
 const stars = ref([]);
-let bg = null; // Объявляем bg как глобальную переменную
+let bg = null;
 
 const randomInt = (max, min) => Math.floor(Math.random() * (max - min) + min);
 
@@ -29,10 +29,10 @@ function init() {
         canvas.value.height,
         canvas.value.height * 4
     );
-    bg.addColorStop(0, "#27625c");
-    bg.addColorStop(.4, "#000c21");
-    bg.addColorStop(.8, "#27625c");
-    bg.addColorStop(1, "#27625c");
+    bg.addColorStop(0.1, "#00dc82");
+    bg.addColorStop(.1, "#00112f");
+    bg.addColorStop(.8, "#000000");
+    bg.addColorStop(1, "#00dc82");
 
     for (let i = 0; i < n_stars; i++) {
         stars.value.push(new Star());
@@ -43,9 +43,9 @@ class Star {
     constructor(x, y, radius, color) {
         this.x = x || randomInt(0, canvas.value.width);
         this.y = y || randomInt(0, canvas.value.height);
-        this.radius = radius || Math.random() * 1.5;
+        this.radius = radius || Math.random() * 2;
         this.color = color || colors[randomInt(0, colors.length)];
-        this.dy = -Math.random() * .3;
+        this.dy = -Math.random() * .4;
     }
     draw() {
         c.value.beginPath();
@@ -53,7 +53,7 @@ class Star {
         c.value.shadowBlur = randomInt(3, 15);
         c.value.shadowColor = this.color;
         c.value.strokeStyle = this.color;
-        c.value.fillStyle = 'rgba(255, 255, 255, .5)';
+        c.value.fillStyle = '#00dc82';
         c.value.fill();
         c.value.stroke();
         c.value.closePath();

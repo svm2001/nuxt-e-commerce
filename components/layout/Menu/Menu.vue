@@ -19,7 +19,7 @@ import {MENU_DATA} from "~/components/layout/Menu/Menu";
 <style scoped>
 
 .router-link-exact-active {
-    color: #81e6d9;
+    color: #00dc82;
     &:hover {
         opacity: 1;
     }

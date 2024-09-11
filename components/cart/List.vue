@@ -5,7 +5,7 @@ const cartStore = useCartStore();
 
 <template>
     <div>
-        <div class="flex w-full justify-between bg-slate-800 px-3 py-2 text-teal-300 rounded-md font-bold mb-5">
+        <div class="flex w-full justify-between bg-slate-800 px-3 py-2 text-[#00dc82] rounded-md font-bold mb-5">
             <span class="w--45 ">Name</span>
             <span class="w--7 text-center">Price (x1)</span>
             <span class="w--16 text-center">Quantity</span>

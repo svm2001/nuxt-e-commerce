@@ -10,5 +10,7 @@ const props = defineProps<SkeletonProps>()
 </script>
 
 <template>
-  <div :class="cn('animate-pulse rounded-md bg-muted', props.class)" />
+    <div :class="cn('rounded-md bg-muted', props.class)">
+        <slot></slot>
+    </div>
 </template>
