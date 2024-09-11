@@ -155,4 +155,7 @@ export const useProductStore = defineStore('products', () => {
         categories,
         fetchCategories
     }
-})
+},
+    {
+        persist: true
+    })

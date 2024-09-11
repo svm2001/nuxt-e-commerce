@@ -7,6 +7,7 @@ export default defineNuxtConfig({
         '@nuxtjs/tailwindcss',
         'shadcn-nuxt',
         '@nuxt/icon',
+        "@pinia-plugin-persistedstate/nuxt",
         '@pinia/nuxt',
         '@nuxt/image',
         "@formkit/auto-animate/nuxt",

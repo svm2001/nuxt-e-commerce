@@ -98,4 +98,7 @@ export const useCategoryStore = defineStore('categories', () => {
         totalPages,
         showMore
     }
-})
+},
+    {
+        persist: true
+    })
