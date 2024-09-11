@@ -32,14 +32,17 @@ onMounted(async () => {
                 <Icon name="icon-park-solid:back" style="color: white;" />Categories
             </NuxtLink>
             <Heading :as="'h1'">{{ category?.name }}</Heading>
-            <div v-if="categoryStore.products && categoryStore.products.length > 0" class="grid grid-cols-4 gap-4 pb-28">
-                <ProductsCard
-                    v-for="product in categoryStore.products"
-                    :key="product.id"
-                    v-bind="product"
-                />
+            <div v-if="categoryStore.products && categoryStore.products.length > 0" class="flex flex-col gap-4">
+                <SortingSort @sort="categoryStore.sortProductsBy" />
+                <div class="grid grid-cols-4 gap-4 pb-28">
+                    <ProductsCard
+                        v-for="product in categoryStore.products"
+                        :key="product.id"
+                        v-bind="product"
+                    />
+                </div>
+                <div class="js-intersection-flag"></div>
             </div>
-            <div class="js-intersection-flag"></div>
         </Container>
     </div>
 </template>

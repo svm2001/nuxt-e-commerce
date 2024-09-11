@@ -1,11 +1,16 @@
 <script setup lang="ts">
 import {useCartStore} from "~/store/cart";
 import {formatNumber} from "../../utils/formatNumber";
-import Loader from "~/components/layout/Loader.vue";
 
 const cartStore = useCartStore();
-
 const products = cartStore.cartItemsTemp
+const productImage = ref<any>(null);
+const replaceByDefault = () => {
+    if (productImage.value) {
+        productImage.value.style = 'object-fit: contain;'
+        productImage.value.src = 'https://vueschool.io/storage/media/677bbaa8ba92bed432f2bc7b6490c03a/Nuxt-3-Fundamentals_transparent.png'
+    }
+};
 </script>
 
 <template>
@@ -20,8 +25,12 @@ const products = cartStore.cartItemsTemp
                             :key="product.productId"
                         >
                             <div class="flex items-start gap-4 p-2 border border-teal-800 rounded-md">
-                                <NuxtImg class="min-w-[72px] max-w-[72px] min-h-[72px] max-h-[72px] object-cover rounded-sm overflow-hidden"
-                                         :src="product.images[0]" :alt="product.title"/>
+                                <img ref="productImage"
+                                     @error="replaceByDefault"
+                                     class="min-w-[72px] max-w-[72px] min-h-[72px] max-h-[72px] object-cover rounded-sm overflow-hidden"
+                                     :src="product.images[0]"
+                                     :alt="product.title"
+                                />
                                 <div class="flex items-center gap-1 text-slate-400">
                                     <div>
                                         <div class="text-[18px] text-white font-medium transition">

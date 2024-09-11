@@ -2,6 +2,7 @@
 import { ref, watch } from 'vue';
 import { useRouter, useRoute } from 'vue-router';
 import { useProductStore } from "~/store/products";
+import {formatNumber} from "~/utils/formatNumber";
 import {toast} from "vue-sonner";
 
 const router = useRouter();
@@ -81,7 +82,7 @@ productStore.filterProducts(
 </script>
 
 <template>
-    <div class="p-4 bg-slate-950/60 mb-6 rounded-lg border-2 border-teal-600 z-50 flex flex-col gap-10 min-w-[290px] h-fit sticky top-[210px] transition">
+    <div class="p-4 bg-slate-950/60 mb-6 rounded-lg border-2 border-teal-900 z-50 flex flex-col gap-10 min-w-[290px] h-fit sticky top-[210px] transition">
         <div>
             <div class="text-[#00dc82] text-xl font-bold mb-1.5 flex gap-1">
                 <Icon name="lets-icons:search-duotone" class="w-6 h-6" style="color: #00dc82;"></Icon>
@@ -101,11 +102,11 @@ productStore.filterProducts(
                     <div class="flex flex-col gap-2">
                         <div class="flex items-center text-[#00dc82]">
                             <div class="min-w-[40px]">min:</div>
-                            <Input v-model="minPrice" type="number" class="input" :placeholder="productStore.filterMinPrice"></Input>
+                            <Input v-model="minPrice" type="number" class="input" :placeholder="formatNumber(productStore.filterMinPrice)"></Input>
                         </div>
                         <div class="flex items-center text-[#00dc82]">
                             <div class="min-w-[40px]">max:</div>
-                            <Input v-model="maxPrice" type="number" class="input" :placeholder="productStore.filterMaxPrice"></Input>
+                            <Input v-model="maxPrice" type="number" class="input" :placeholder="formatNumber(productStore.filterMaxPrice)"></Input>
                         </div>
                     </div>
                 </div>
@@ -113,7 +114,7 @@ productStore.filterProducts(
                 <div>
                     <div class="text-[#00dc82] font-medium mb-1">By category</div>
                     <Select v-model="catId">
-                        <SelectTrigger class="w-full">
+                        <SelectTrigger class="w-full bg-slate-400">
                             <SelectValue placeholder="Select a category" />
                         </SelectTrigger>
                         <SelectContent>
@@ -129,7 +130,7 @@ productStore.filterProducts(
                 </div>
             </div>
         </div>
-        <Button @click="resetFilters" class="gap-1 flex items-center text-xl font-medium bg-red-600 hover:bg-red-800">Reset All Filters
+        <Button @click="resetFilters" class="gap-1 flex items-center text-xl font-medium bg-red-600 hover:bg-red-800">Reset All
             <Icon name="carbon:reset-alt" class="w-5 h-5" style="color: white;"></Icon>
         </Button>
     </div>
@@ -137,6 +138,6 @@ productStore.filterProducts(
 
 <style scoped>
 .input {
-    @apply bg-transparent border text-white
+    @apply bg-slate-700 border text-white
 }
 </style>

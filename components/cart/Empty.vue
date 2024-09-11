@@ -3,8 +3,8 @@
 </script>
 
 <template>
-    <div class="flex flex-col items-center pt-20">
-        <Heading :as="'h3'">Unfortunately, your cart is empty!</Heading>
+    <div class="flex flex-col items-center mt-20 p-8 rounded-lg bg-slate-600/60 m-auto w-fit">
+        <Heading :as="'h3'">Cart is empty</Heading>
         <Icon name="noto:sad-but-relieved-face" class="w-12 h-12 mb-7"/>
         <NuxtLink to="/products">
             <Button class="flex items-center gap-1">

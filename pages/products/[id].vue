@@ -19,7 +19,14 @@ const product = computed(() => {
     return foundProduct ? mapProductToCartItem(foundProduct) : undefined;
 })
 
-const isAdded = ref(false)
+const productImage = ref<any>(null);
+
+const replaceByDefault = () => {
+    if (productImage.value) {
+        productImage.value.style = 'object-fit: contain;'
+        productImage.value.src = 'https://vueschool.io/storage/media/677bbaa8ba92bed432f2bc7b6490c03a/Nuxt-3-Fundamentals_transparent.png'
+    }
+};
 
 useSeoMeta({
     title: `${product.value?.title} | My e-commerce`,
@@ -57,10 +64,12 @@ const RemoveFromCart = () => {
                 <Icon name="icon-park-solid:back" style="color: white;" />Products
             </NuxtLink>
             <Heading :as="'h1'">{{ product ? product.title : 'Loading...' }}</Heading>
-            <div v-if="product" class="grid grid-cols-2 gap-8 p-4 shadow-lg shadow-teal-300 rounded-md">
+            <div v-if="product" class="grid grid-cols-2 gap-8 p-4 shadow-lg shadow-teal-300 bg-slate-800 rounded-md">
                 <div class="relative">
                     <Badge class="absolute top-3 right-3"> {{product.categoryName}} </Badge>
-                    <NuxtImg
+                    <img
+                        @error="replaceByDefault"
+                        ref="productImage"
                         loading="lazy"
                         format="webp"
                         :src="product.images[0]"

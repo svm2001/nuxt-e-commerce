@@ -5,13 +5,26 @@ import {formatNumber} from "~/utils/formatNumber";
 const props = defineProps<CartItem>()
 const image = props.images[0]
 const cartStore = useCartStore();
+
+const productImage = ref<any>(null);
+const replaceByDefault = () => {
+    if (productImage.value) {
+        productImage.value.style = 'object-fit: contain;'
+        productImage.value.src = 'https://vueschool.io/storage/media/677bbaa8ba92bed432f2bc7b6490c03a/Nuxt-3-Fundamentals_transparent.png'
+    }
+};
 </script>
 
 <template>
     <div class="border border-teal-900 p-2.5 rounded-md flex bg-slate-900">
         <div class="w--45 flex items-center gap-2">
             <div class="min-h-[72px] max-h-[72px] min-w-[72px] max-w-[72px] border-2 border-slate-500 rounded-md overflow-hidden">
-                <NuxtImg class="w-full h-full object-cover" :src="image" :alt="props.title"></NuxtImg>
+                <img ref="productImage"
+                     @error="replaceByDefault"
+                     class="w-full h-full object-cover"
+                     :src="image"
+                     :alt="props.title"
+                />
             </div>
             <div class="flex flex-col gap-1">
                 <NuxtLink :to="`/products/${props.productId}`" class="text-lg font-medium min-h-7 text-[#00dc82] max-h-7 overflow-hidden transition hover:text-[#00dc82]"> {{ props.title }} </NuxtLink>
@@ -26,7 +39,7 @@ const cartStore = useCartStore();
                 <Button class="bg-[#00dc82] hover:bg-teal-600 p-2" @click="cartStore.decrementCount(productId)">
                     <Icon name="gravity-ui:minus" class="w-2.5 h-2.5" style="color: black"/>
                 </Button>
-                <Input type="number" :min="1" :max="100" class="text-black max-w-14 font-medium text-center pointer-events-none" v-model="props.quantity" placeholder="" :value="props.quantity"/>
+                <Input type="number" :min="1" :max="100" class="text-white bg-transparent border-none text-lg max-w-14 font-medium text-center pointer-events-none" v-model="props.quantity" placeholder="" :value="props.quantity"/>
                 <Button class="bg-[#00dc82] hover:bg-teal-600 p-2" @click="cartStore.incrementCount(productId)">
                     <Icon name="mingcute:add-fill" class="w-2.5 h-2.5" style="color: black"/>
                 </Button>
