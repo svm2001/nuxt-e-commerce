@@ -162,4 +162,7 @@ export const useProductStore = defineStore('products', () => {
             fetchCategories,
             sortProductsBy
         }
+    },
+    {
+        persist: true
     })

@@ -8,6 +8,7 @@ export default defineNuxtConfig({
         'shadcn-nuxt',
         '@nuxt/icon',
         '@pinia/nuxt',
+        '@pinia-plugin-persistedstate/nuxt',
         '@nuxt/image',
         "@formkit/auto-animate/nuxt",
         ['@nuxtjs/google-fonts', {

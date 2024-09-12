@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const selectedSorting = ref('Price: High to Low');
+const selectedSorting = ref('');
 const emit = defineEmits(['sort']);
 const sortProducts = (sorting: string) => {
     selectedSorting.value = sorting;
