@@ -104,7 +104,4 @@ export const useCategoryStore = defineStore('categories', () => {
             showMore,
             sortProductsBy
         }
-    },
-    {
-        persist: true
     })

@@ -186,6 +186,4 @@ export const useCartStore = defineStore('cart', () => {
         totalPrice,
         tempData,
     }
-},{
-    persist: true
 })

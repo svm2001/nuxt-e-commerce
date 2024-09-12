@@ -5,9 +5,7 @@ import type { comboboxProps } from "~/components/ui/form/comboboxTypes";
 
 const open = ref(false)
 const value = ref<string | number | undefined>()
-
 const props = defineProps<comboboxProps>()
-
 const emits = defineEmits<{
     (e: 'update:modelValue', payload: string | number): void
 }>()

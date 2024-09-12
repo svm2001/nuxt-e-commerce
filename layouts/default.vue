@@ -2,7 +2,7 @@
     <div>
         <NuxtLoadingIndicator />
         <LayoutBg />
-        <Globe />
+<!--        <Globe />-->
         <LayoutMouseFollower/>
         <div>
             <LayoutHeader />
