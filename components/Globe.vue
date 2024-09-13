@@ -157,10 +157,10 @@ function onTouchMove(e) {
 </script>
 
 <template>
-    <div class="fixed inset-0 aspect-square">
+    <div class="relative inset-0 aspect-square min-h-screen max-h-screen flex items-center justify-center">
         <canvas
             ref="canvasRef"
-            class="h-full w-full"
+            class="h-[100%] w-[100%]"
             :class="[isGrabbing ? 'cursor-grabbing' : 'cursor-grab']"
             @pointerdown="onPointerDown"
             @pointerup="onPointerUp"

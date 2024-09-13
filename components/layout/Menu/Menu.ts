@@ -26,3 +26,26 @@ export const MENU_DATA: MenuItem[] = [
         url: '/cart'
     }
 ]
+
+export const ADMIN_MENU_DATA: MenuItem[] = [
+    {
+        icon: 'carbon:catalog-publish',
+        name: 'Products',
+        url: '/admin/products'
+    },
+    {
+        icon: 'iconamoon:category-duotone',
+        name: 'Categories',
+        url: '/admin/categories'
+    },
+    {
+        icon: 'flowbite:users-group-outline',
+        name: 'Users',
+        url: '/admin/users'
+    },
+    {
+        icon: 'material-symbols:contact-support-outline',
+        name: 'Support',
+        url: ''
+    }
+]

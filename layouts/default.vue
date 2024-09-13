@@ -1,8 +1,6 @@
 <template>
     <div>
-        <NuxtLoadingIndicator />
-        <LayoutBg />
-<!--        <Globe />-->
+<!--        <LayoutBg />-->
         <LayoutMouseFollower/>
         <div>
             <LayoutHeader />
@@ -12,6 +10,3 @@
         </div>
     </div>
 </template>
-<script setup lang="ts">
-import Globe from "~/components/Globe.vue";
-</script>

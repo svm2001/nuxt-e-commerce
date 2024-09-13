@@ -1,7 +1,8 @@
 import {defineStore} from 'pinia'
 import type {Product} from "~/components/products/List_types"
 import type {Category} from "~/components/categories/types"
-import {sortProducts} from "~/utils/sorting";
+import {sortProducts} from "~/utils/sorting"
+import debounce from 'lodash.debounce'
 
 export const useProductStore = defineStore('products', () => {
         const url = 'https://api.escuelajs.co'
@@ -105,9 +106,10 @@ export const useProductStore = defineStore('products', () => {
         }
 
         const sortProductsBy = (sorting: string) => {
-            filteredProducts.value = sortProducts(filteredProducts.value, sorting);
-            paginateProducts(currentPage.value);
-        };
+            console.log(filteredProducts.value)
+            filteredProducts.value = sortProducts(filteredProducts.value, sorting)
+            paginateProducts(currentPage.value)
+        }
 
         const prevPage = () => {
             if (currentPage.value > 1) {
@@ -142,6 +144,13 @@ export const useProductStore = defineStore('products', () => {
             }
         }
 
+        const addProduct = (product: Product) => {
+            filteredProducts.value.push(product)
+            totalProducts.value++
+            totalPages.value = Math.ceil(totalProducts.value / itemsPerPage.value)
+            paginateProducts(currentPage.value)
+        }
+
         return {
             products,
             loading,
@@ -156,11 +165,13 @@ export const useProductStore = defineStore('products', () => {
             currentPage,
             itemsPerPage,
             filterProducts,
+            filteredProducts,
             filterMinPrice,
             filterMaxPrice,
             categories,
             fetchCategories,
-            sortProductsBy
+            sortProductsBy,
+            addProduct
         }
     },
     {

@@ -6,10 +6,11 @@ import { useSeoMeta } from "@unhead/vue";
 import { toast } from 'vue-sonner';
 import { formatNumber } from "~/utils/formatNumber";
 import { mapProductToCartItem } from "~/utils/mapProductToCartItem";
-import router from "#app/plugins/router";
+import {useUserStore} from "~/store/user";
 
 
 const route = useRoute();
+const userStore = useUserStore();
 const productStore = useProductStore();
 const cartStore = useCartStore();
 const productId = parseInt(route.params.id as string);
@@ -80,14 +81,16 @@ const RemoveFromCart = () => {
                 <div>
                     <p class="text-xl text-white mb-4">{{ product.description }}</p>
                     <p class="text-2xl text-white font-bold mb-4">Price: ${{ formatNumber(product.price) }}</p>
-                    <Button class="text-md bg-[#00dc82] hover:bg-teal-600" @click="AddToCart" v-if="!cartStore.isSinglePageItemAdded">
-                        <Icon name="cil:cart" class="w-6 h-6" style="color: #000026"/>
-                        <span class="pl-1.5 text-slate-900 font-bold">Add to cart</span>
-                    </Button>
-                    <Button class="text-md bg-[#00dc82] hover:bg-teal-600" @click="RemoveFromCart" v-if="cartStore.isSinglePageItemAdded">
-                        <Icon name="mingcute:close-fill" class="w-6 h-6" style="color: #000026"/>
-                        <span class="pl-1.5 text-slate-900 font-bold">Remove from cart</span>
-                    </Button>
+                    <div v-if="!!userStore.isAuthenticated()">
+                        <Button class="text-md bg-[#00dc82] hover:bg-teal-600" @click="AddToCart" v-if="!cartStore.isSinglePageItemAdded">
+                            <Icon name="cil:cart" class="w-6 h-6" style="color: #000026"/>
+                            <span class="pl-1.5 text-slate-900 font-bold">Add to cart</span>
+                        </Button>
+                        <Button class="text-md bg-[#00dc82] hover:bg-teal-600" @click="RemoveFromCart" v-if="cartStore.isSinglePageItemAdded">
+                            <Icon name="mingcute:close-fill" class="w-6 h-6" style="color: #000026"/>
+                            <span class="pl-1.5 text-slate-900 font-bold">Remove from cart</span>
+                        </Button>
+                    </div>
                 </div>
             </div>
             <div v-else class="flex justify-center items-center pt-32">

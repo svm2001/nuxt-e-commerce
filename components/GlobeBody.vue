@@ -4,7 +4,7 @@ import { ArrowRightIcon } from "@heroicons/vue/20/solid"
 </script>
 
 <template>
-    <div class="flex h-screen w-screen items-center px-8 fixed">
+    <div class="flex h-[85%] w-[85%] items-center px-8 fixed">
         <div
             class="group relative mx-auto flex h-80 w-full max-w-md flex-col overflow-hidden rounded-2xl border border-white/5 bg-zinc-800">
             <div
