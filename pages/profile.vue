@@ -1,11 +1,3 @@
-<template>
-    <div>
-        <h1>Profile</h1>
-        <p>Welcome, {{ authStore.user.name }}</p>
-        <button @click="handleLogout">Logout</button>
-    </div>
-</template>
-
 <script setup>
 import {useAuthStore} from '~/stores/auth'
 
@@ -15,3 +7,11 @@ const handleLogout = () => {
     authStore.logout()
 }
 </script>
+
+<template>
+    <div>
+        <h1>Profile</h1>
+        <p>Welcome, {{ authStore.user.name }}</p>
+        <button @click="handleLogout">Logout</button>
+    </div>
+</template>
