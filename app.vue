@@ -6,7 +6,7 @@
 
 <style>
 body {
-    background: linear-gradient(180deg, #000715, #04003f, #000715);
+    background: linear-gradient(180deg, #000000, #063b49, #000000);
     background-attachment: fixed;
 }
 

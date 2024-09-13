@@ -40,7 +40,6 @@ const removeFromList = async (id: number) => {
         toast.error(err.message || 'An error occurred');
     }
 };
-
 </script>
 
 <template>
@@ -80,9 +79,22 @@ const removeFromList = async (id: number) => {
                     <TableCell>{{ product.category.name }}</TableCell>
                     <TableCell class="text-right">
                         <div class="flex items-center justify-end gap-1">
-                            <Button class="h-8 w-8 p-0 flex items-center gap-2">
-                                <Icon name="uil:edit"></Icon>
-                            </Button>
+                            <Dialog>
+                                <DialogTrigger as-child>
+                                    <Button class="h-8 w-8 p-0 flex items-center gap-2">
+                                        <Icon name="uil:edit"></Icon>
+                                    </Button>
+                                </DialogTrigger>
+                                <DialogContent class="sm:max-w-[425px]">
+                                    <DialogHeader>
+                                        <DialogTitle>Edit mode</DialogTitle>
+                                        <DialogDescription>
+                                            <div>Let's edit "{{ product.title }}" </div>
+                                        </DialogDescription>
+                                    </DialogHeader>
+                                    <AdminFormsEditProduct :product="product"/>
+                                </DialogContent>
+                            </Dialog>
 
                             <Dialog>
                                 <DialogTrigger as-child>

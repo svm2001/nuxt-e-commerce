@@ -45,6 +45,7 @@ const uploadImages = async () => {
         const data = await response.json();
         imageUrls.push(data.location);
     }
+    console.log(imageUrls)
     return imageUrls;
 };
 
