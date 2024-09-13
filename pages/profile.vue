@@ -1,17 +1,17 @@
 <script setup>
-import {useAuthStore} from '~/stores/auth'
+import {useUserStore} from '~/store/user'
 
-const authStore = useAuthStore()
+const userStore = useUserStore()
 
 const handleLogout = () => {
-    authStore.logout()
+    userStore.logout()
 }
 </script>
 
 <template>
     <div>
         <h1>Profile</h1>
-        <p>Welcome, {{ authStore.user.name }}</p>
+        <p>Welcome, {{ userStore.user.name }}</p>
         <button @click="handleLogout">Logout</button>
     </div>
 </template>

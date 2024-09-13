@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {ADMIN_MENU_DATA, MENU_DATA} from "~/components/layout/Menu/Menu";
+import {ADMIN_MENU_DATA, MENU_DATA} from "~/components/layout/Menu/Menu_data";
 import {useUserStore} from "~/store/user";
 const userStore = useUserStore();
 import { useRouter } from 'vue-router';
