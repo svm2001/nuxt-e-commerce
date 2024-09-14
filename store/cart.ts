@@ -144,9 +144,9 @@ export const useCartStore = defineStore('cart', () => {
             })
 
             // check & log data (for dev mode only)
-            for (let [key, value] of formData.entries()) {
-                console.log(`${key}: ${value}`)
-            }
+            // for (let [key, value] of formData.entries()) {
+            //     console.log(`${key}: ${value}`)
+            // }
 
             formSending.value = false
         }, 3000)

@@ -16,7 +16,7 @@ const replaceByDefault = () => {
 
 const formatImgUrl = (url:string) => url.replace(/["\[\]]/g, '')
 
-const removeFromList = async (id: number) => {
+const removeProduct = async (id: number) => {
     try {
         productStore.loading = true
         const response = await fetch(`https://api.escuelajs.co/api/v1/products/${id}`, {
@@ -111,7 +111,7 @@ const removeFromList = async (id: number) => {
                                     </DialogHeader>
                                     <DialogClose>
                                         <div class="flex items-center gap-3">
-                                            <Button class='w-full bg-red-500 hover:bg-red-700' @click="removeFromList(product.id)">Yes</Button>
+                                            <Button class='w-full bg-red-500 hover:bg-red-700' @click="removeProduct(product.id)">Yes</Button>
                                             <Button class='w-full bg-slate-500 hover:bg-slate-700'>Cancel</Button>
                                         </div>
                                     </DialogClose>

@@ -184,7 +184,7 @@ const submitForm = async () => {
                     </FormItem>
                 </FormField>
                     <DialogClose class="hidden">
-                        <button ref="close">CLOSE</button>
+                        <a ref="close">CLOSE</a>
                     </DialogClose>
             </div>
             <Button class="flex items-center gap-1">

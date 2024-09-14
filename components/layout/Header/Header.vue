@@ -8,10 +8,8 @@ import {useFavouriteStore} from "~/store/favourites";
 import {useUserStore} from "~/store/user";
 import { useRouter } from 'vue-router';
 
-
 const props = defineProps<Product>()
 const router = useRouter();
-
 const cartStore = useCartStore();
 const favouriteStore = useFavouriteStore();
 const userStore = useUserStore();

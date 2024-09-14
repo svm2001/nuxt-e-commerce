@@ -1,6 +1,10 @@
 import { defineStore } from 'pinia';
 import axios from 'axios';
+import {useCartStore} from "~/store/cart";
+import {useFavouriteStore} from "~/store/favourites";
 
+const cartStore = useCartStore()
+const favouriteStore = useFavouriteStore()
 const API_URL = 'https://api.escuelajs.co/api/v1';
 
 export const useUserStore = defineStore('user', () => {
@@ -27,7 +31,6 @@ export const useUserStore = defineStore('user', () => {
             });
             user.value = userResponse.data;
             role = user.value.role
-            console.log(role)
             if (process.client) localStorage.setItem('role', role)
             return true;
         } catch (error) {
@@ -39,6 +42,8 @@ export const useUserStore = defineStore('user', () => {
     const logout = () => {
         user.value = null;
         token = '';
+        cartStore.cartItems = []
+        favouriteStore.favouriteItems = []
         if (process.client) {
             localStorage.removeItem('token');
             localStorage.removeItem('role');

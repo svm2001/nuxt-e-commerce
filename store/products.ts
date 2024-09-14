@@ -106,7 +106,6 @@ export const useProductStore = defineStore('products', () => {
         }
 
         const sortProductsBy = (sorting: string) => {
-            console.log(filteredProducts.value)
             filteredProducts.value = sortProducts(filteredProducts.value, sorting)
             paginateProducts(currentPage.value)
         }

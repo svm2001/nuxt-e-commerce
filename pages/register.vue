@@ -50,7 +50,6 @@ const handleSignUp = async () => {
             role: role.value,
             avatar: avatar.value,
         });
-        console.log('User registered successfully:', response.data);
             toast('Success! ✅', {
                 description: 'Redirecting to Sign In...',
                 action: {
@@ -63,7 +62,6 @@ const handleSignUp = async () => {
                 router.push('/login');
             }, 4000)
     } catch (error) {
-        console.error('Registration failed:', error);
         toast('Something went wrong! ❌', {
             description: 'Check your input values',
             action: {
@@ -135,7 +133,7 @@ const handleSignUp = async () => {
                                         v-model="password"
                                         type="password"
                                         required
-                                        placeholder="* Password"
+                                        placeholder="* Password (only numeric and alphabetic)"
                                         class="min-w-[300px]"
                                     />
                                 </FormControl>
