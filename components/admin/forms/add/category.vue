@@ -54,8 +54,6 @@ const submitForm = async () => {
             image: imageUrl,
         };
 
-        console.log(newCategory)
-
         const response = await fetch(`https://api.escuelajs.co/api/v1/categories`, {
             method: 'POST',
             headers: {

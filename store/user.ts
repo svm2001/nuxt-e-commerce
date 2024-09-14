@@ -1,10 +1,6 @@
 import { defineStore } from 'pinia';
 import axios from 'axios';
-import {useCartStore} from "~/store/cart";
-import {useFavouriteStore} from "~/store/favourites";
 
-const cartStore = useCartStore()
-const favouriteStore = useFavouriteStore()
 const API_URL = 'https://api.escuelajs.co/api/v1';
 
 export const useUserStore = defineStore('user', () => {
@@ -42,8 +38,6 @@ export const useUserStore = defineStore('user', () => {
     const logout = () => {
         user.value = null;
         token = '';
-        cartStore.cartItems = []
-        favouriteStore.favouriteItems = []
         if (process.client) {
             localStorage.removeItem('token');
             localStorage.removeItem('role');
