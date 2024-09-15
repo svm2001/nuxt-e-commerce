@@ -25,9 +25,6 @@ const handleLogout = () => {
             <NuxtLink to="/" title="Homepage">
                 <Icon name="ion:home-outline" class="w-6 h-6" style="color: #1e40af"></Icon>
             </NuxtLink>
-            <button title="Settings">
-                <Icon name="system-uicons:settings" class="w-8 h-8" style="color: #1e40af"></Icon>
-            </button>
             <button @click="handleLogout" title="Log Out">
                 <Icon name="solar:logout-2-broken" class="w-6 h-6" style="color: #1e40af"></Icon>
             </button>
