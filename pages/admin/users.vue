@@ -29,6 +29,7 @@ const handleSort = (sortOption: string) => {
         <div class="max-w-[250px] min-w-[250px] w-full flex flex-col gap-5">
             <FiltersUserFilter />
             <SortingUserSort @sort="handleSort" />
+            <div class="text-sm text-slate-400">First three users are untouchables. Protect from backend.</div>
             <div class="mt-auto">
                 <Dialog>
                     <DialogTrigger as-child>

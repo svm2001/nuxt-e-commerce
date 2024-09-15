@@ -9,5 +9,5 @@ useSeoMeta({
 </script>
 
 <template>
-    <h1 class="text-blue-600 text-3xl font-bold">Later...</h1>
+    <h1 class="text-blue-600 text-3xl font-bold">Mokky section</h1>
 </template>

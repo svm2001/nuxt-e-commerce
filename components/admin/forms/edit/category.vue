@@ -141,7 +141,6 @@ const submitForm = async () => {
             </div>
             <Button class="flex items-center gap-1 bg-green-600 hover:bg-green-700">
                 Confirm
-                <Icon name="lets-icons:add-duotone" class="w-6 h-6" style="color: white;"></Icon>
             </Button>
         </div>
     </form>

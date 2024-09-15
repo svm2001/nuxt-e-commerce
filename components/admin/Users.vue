@@ -92,9 +92,9 @@ const removeUser = async (id: number) => {
                                     <DialogContent class="sm:max-w-[425px]">
                                         <DialogHeader>
                                             <DialogTitle>Edit mode</DialogTitle>
-                                            <DialogDescription>
-                                            </DialogDescription>
                                         </DialogHeader>
+
+                                        <AdminFormsEditUser :user="user"/>
                                     </DialogContent>
                                 </Dialog>
 
