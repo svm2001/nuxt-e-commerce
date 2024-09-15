@@ -26,7 +26,7 @@ const sortUsers = (sorting: string) => {
         <div class="text-xl text-[#1e40af] font-bold mb-3">Sorting</div>
         <div class="flex flex-col gap-3">
             <Select v-model="sortOption" @update:modelValue="sortUsers">
-                <SelectTrigger class="w-full bg-slate-400">
+                <SelectTrigger class="w-full bg-white">
                     <SelectValue placeholder="Select a sorting option" />
                 </SelectTrigger>
                 <SelectContent>
