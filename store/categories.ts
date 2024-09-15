@@ -5,7 +5,7 @@ import {sortProducts} from "~/utils/sorting";
 
 export const useCategoryStore = defineStore('categories', () => {
         const url = 'https://api.escuelajs.co'
-        const urlCategories = '/api/v1/categories?limit=0'
+        const urlCategories = '/api/v1/categories'
 
         // getting data
         const categories = ref<Category[]>([])
@@ -24,6 +24,7 @@ export const useCategoryStore = defineStore('categories', () => {
                 const data = await response.json();
                 if (Array.isArray(data)) {
                     categories.value = data
+                    loading.value = false
                 } else {
                     throw new Error('Failed to fetch categories')
                 }

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import {useCategoryStore} from "~/store/categories";
-const categoryStore = useCategoryStore
 
+const categoryStore = useCategoryStore()
 
 definePageMeta({
     layout: 'admin'
@@ -30,6 +30,7 @@ useSeoMeta({
         </Dialog>
     </div>
     <AdminCategories />
+<!--    <div class="flex pt-32 justify-center text-blue-600 font-bold">No categories found. ❌</div>-->
 </template>
 
 <style scoped>

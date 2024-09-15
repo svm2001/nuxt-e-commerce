@@ -2,7 +2,6 @@ import {defineStore} from 'pinia'
 import type {Product} from "~/components/products/List_types"
 import type {Category} from "~/components/categories/types"
 import {sortProducts} from "~/utils/sorting"
-import debounce from 'lodash.debounce'
 
 export const useProductStore = defineStore('products', () => {
         const url = 'https://api.escuelajs.co'

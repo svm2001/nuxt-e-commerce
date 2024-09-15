@@ -35,8 +35,8 @@ const userStore = useUserStore();
 
 main {
     box-shadow: 0 0 12px -2px #000572;
-    min-width: calc(100dvw - 390px);
-    max-width: calc(100dvw - 390px);
+    min-width: calc(100dvw - 300px);
+    max-width: calc(100dvw - 300px);
     width: 100%;
     margin-left: auto;
     transform: translateX(-30px);

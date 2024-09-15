@@ -44,8 +44,18 @@ export const ADMIN_MENU_DATA: MenuItem[] = [
         url: '/admin/users'
     },
     {
+        icon: 'akar-icons:statistic-up',
+        name: 'Statistic',
+        url: '/admin/statistic'
+    },
+    {
+        icon: 'mdi:widget-line-shimmer',
+        name: 'Widgets',
+        url: '/admin/widgets'
+    },
+    {
         icon: 'material-symbols:contact-support-outline',
         name: 'Support',
-        url: ''
-    }
+        url: '/admin/support'
+    },
 ]

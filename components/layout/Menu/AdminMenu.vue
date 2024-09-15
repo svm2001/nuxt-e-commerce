@@ -13,9 +13,9 @@ const handleLogout = () => {
 
 <template>
 <nav class="adminMenu bg-white absolute top-[110px] left-[30px] h-full flex-col pt-5 px-5 rounded-lg">
-    <div class="flex flex-col gap-3 pb-3">
+    <div class="flex flex-col gap-1 pb-3">
         <NuxtLink
-            class="flex items-center text-slate-600 py-3 px-3 text-xl font-medium rounded-md px-2 w-full hover:opacity-60 transition-all gap-0.5"
+            class="flex flex-row-reverse justify-between items-center text-slate-600 py-1 text-lg font-medium rounded-md px-2 w-full hover:opacity-60 transition-all gap-0.5"
             v-for="item in ADMIN_MENU_DATA"
             :key="item.url"
             :to="item.url"
@@ -41,8 +41,8 @@ const handleLogout = () => {
 .adminMenu {
     min-height: calc(100dvh - 140px);
     max-height: calc(100dvh - 140px);
-    max-width: 300px;
-    min-width: 300px;
+    max-width: 220px;
+    min-width: 220px;
     box-shadow: 0 0 12px -2px #000572;
 }
 

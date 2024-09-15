@@ -130,25 +130,31 @@ const submitForm = async () => {
                     </FormItem>
                 </FormField>
 
-                <FormField v-slot="{ componentField }" name="categoryId">
-                    <FormItem>
-                        <FormControl>
-                            <Select v-model="catId">
-                                <SelectTrigger class="w-full">
-                                    <SelectValue placeholder="Select a category" />
-                                </SelectTrigger>
-                                <SelectContent>
-                                    <SelectGroup>
-                                        <SelectItem v-for="category in productStore.categories" :key="category.id" :value="Number(category.id)">
-                                            {{ category.name }}
-                                        </SelectItem>
-                                    </SelectGroup>
-                                </SelectContent>
-                            </Select>
-                        </FormControl>
-                        <FormMessage />
-                    </FormItem>
-                </FormField>
+                <div v-if="productStore.categories.length > 0">
+                    <FormField v-slot="{ componentField }" name="categoryId">
+                        <FormItem>
+                            <FormControl>
+                                <Select v-model="catId">
+                                    <SelectTrigger class="w-full">
+                                        <SelectValue placeholder="Select a category" />
+                                    </SelectTrigger>
+                                    <SelectContent>
+                                        <SelectGroup>
+                                            <SelectItem v-for="category in productStore.categories" :key="category.id" :value="Number(category.id)">
+                                                {{ category.name }}
+                                            </SelectItem>
+                                        </SelectGroup>
+                                    </SelectContent>
+                                </Select>
+                            </FormControl>
+                            <FormMessage />
+                        </FormItem>
+                    </FormField>
+                </div>
+
+                <div v-else class="p-3 rounded-md border border-slate-200">
+                    No category found. <NuxtLink class="transition text-blue-500 font-bold hover:text-blue-700" to="/admin/categories">Create</NuxtLink>  a new one.
+                </div>
 
                 <FormField v-slot="{ componentField }" name="categoryId">
                     <FormItem>
