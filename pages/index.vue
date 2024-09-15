@@ -24,7 +24,6 @@ useSeoMeta({
                     <div class="flex items-center gap-1"><Icon name="simple-icons:iconify" class="w-4 h-4" style="color: #3bc896" /> - <NuxtLink class="transition hover:text-[#3BC896FF]" to="https://iconify.design/" target="_blank">Iconify</NuxtLink></div>
                     <div class="flex items-center gap-1"><Icon name="carbon:two-factor-authentication" class="w-4 h-4" style="color: #3bc896" /> - <div>JWT Token</div></div>
                     <div class="flex items-center gap-1"><Icon name="simple-icons:platzi" class="w-4 h-4" style="color: #92c53c" /> - <NuxtLink class="transition hover:text-[#3BC896FF]" to="https://fakeapi.platzi.com/" target="_blank">Platzi API</NuxtLink></div>
-                    <div class="flex items-center gap-1"><Icon name="ion:logo-docker" class="w-4 h-4" style="color: #2261ee" /> - <div>Docker</div></div>
                 </div>
             </div>
             <div class="text-slate-200 border-slate-200 border p-4 bg-slate-900 w-[220px] rounded-md shadow-lg flex flex-col gap-3 justify-center">
